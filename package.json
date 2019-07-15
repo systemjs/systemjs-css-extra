@@ -2,7 +2,10 @@
   "name": "systemjs-css-extra",
   "version": "1.0.0",
   "description": "Simple CSS loader extra for SystemJS v4 and up",
-  "main": "index.js",
+  "keywords": [
+    "systemjs",
+    "css"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node build/build.js"
