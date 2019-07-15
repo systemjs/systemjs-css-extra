@@ -12,7 +12,7 @@
         if(
           document.querySelector('link[href="'+url+'"]') || 
           document.querySelector('link[href="'+url.replace(location.protocol+'//'+location.hostname, '')+'"]')
-          ){
+        ){
           reject(Error('Style '+url+' has already been loaded'));
         }
         let link = document.createElement('link');
