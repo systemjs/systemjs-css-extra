@@ -7,7 +7,7 @@
     "css"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha-headless-chrome -f test/test.html",
     "build": "node build/build.js"
   },
   "repository": {
@@ -18,12 +18,15 @@
   "license": "MIT",
   "files": [
     "dist"
-  ],  
+  ],
   "homepage": "https://github.com/kouts/systemjs-css-extra#readme",
   "devDependencies": {
     "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.4",
     "@babel/preset-env": "^7.5.4",
-    "babel-preset-minify": "^0.5.0"
+    "babel-preset-minify": "^0.5.0",
+    "mocha": "^6.1.4",
+    "mocha-headless-chrome": "^2.0.3",
+    "systemjs": "^4.1.0"
   }
 }
