@@ -1,0 +1,33 @@
+{
+    "extends": [ "eslint:recommended" ],
+    "env": {
+        "node": false,
+        "browser": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2017,
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-console": "off",
+        "no-unused-vars": "warn",
+        "quotes": [
+        	"error",
+        	"single"
+        ],
+        "semi": [
+            2,
+            "always"
+        ]
+    },
+    "globals": {
+        "Promise": true,
+        "System": true
+    },
+    "overrides": [{
+        "files": "",
+        "rules": {
+        	"quotes": [2, "double"]
+        }
+    }]
+}
