@@ -19,24 +19,38 @@ describe('CSS', function() {
 
     this.timeout(5000);
 
-    it('should have systemjs loaded', function(){
+    it('should load systemjs', function(){
         assert.ok(typeof window.System === 'object');
     });
 
-    it('should load test.css', function(done){
-        System.import('../test/test.css').then(function(){
-            done();
+    it('should load test_1.css', function(done){
+        System.import('../test/test_1.css').then(function(){
+            let links = document.head.querySelectorAll('link');
+            for (var i = 0; i < links.length; i++) {
+                let link = links[i].getAttribute('href');
+                if(link.endsWith('test/test_1.css')){
+                    done();
+                    return;
+                }
+            }
+            done(new Error('css file did not load'));
         });
     });        
 
-    /*
-    it('width should be equal to 801', function() {
-        assert.equal(801, window.innerWidth);
-    });
+    it('should not load a stylesheet if it is already loaded', function(done){
+        let link = document.createElement('link');
+        link.type = 'text/css';
+        link.rel = 'stylesheet';
+        link.href = window.location.pathname.replace('test/test.html', '')+'test/test_2.css';
+        document.head.appendChild(link);
+        link.onload = function(){
+            System.import('../test/test_2.css').then(function(){
+                done(new Error('css file loaded while it should not'));
+            }).catch(function(e){
+                done();
+            });
+        };
 
-    it('height should be equal to 501', function() {
-        assert.equal(501, window.innerHeight);
     });
-    */
 
 });
