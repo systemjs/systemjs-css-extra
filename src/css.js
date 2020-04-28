@@ -1,7 +1,7 @@
 'use strict';
 
-(function () {
-  const systemPrototype = System.constructor.prototype;
+(function (global) {
+  const systemPrototype = global.System.constructor.prototype;
   const originalInstantiate = systemPrototype.instantiate;
 
   systemPrototype.instantiate = function () {
@@ -39,4 +39,4 @@
       return originalInstantiate.apply(this, arguments);
     }
   };
-})();
+})(typeof self !== 'undefined' ? self : global);
